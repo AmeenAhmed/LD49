@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: Alagard;
+    src: url(../assets/fonts/alagard.ttf);
+}
+
+@font-face {
+    font-family: Pixellari;
+    src: url(../assets/fonts/Pixellari.ttf);
+}
+
+@font-face {
+    font-family: Alkhemikal;
+    src: url(../assets/fonts/Alkhemikal.ttf);
+}
+
+.font-load {
+    font-family: Alagard;
+}
