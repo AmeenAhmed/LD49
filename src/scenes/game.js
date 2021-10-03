@@ -699,7 +699,7 @@ export default class Game extends Phaser.Scene {
 
         this.potiionImg = this.add.sprite(Constants.VIEWPORT.WIDTH / 2, 180, 'ingredients', '' + item.id);
 
-        this.btn = this.createButton(Constants.VIEWPORT.WIDTH / 2, 240, 'Reset', () => {
+        this.btn = this.createButton(Constants.VIEWPORT.WIDTH / 2, 240, 'Brew another', () => {
             this.clickSound.play();
             this.title.destroy();
             this.msg.destroy();
@@ -723,7 +723,7 @@ export default class Game extends Phaser.Scene {
         this.msg = this.add.text(Constants.VIEWPORT.WIDTH / 2, 120, `Unstable concoction`, {align: 'center', color: '#000', fontSize: 20, fontFamily: 'Pixellari'});
         this.msg.setOrigin(0.5);
 
-        this.btn = this.createButton(Constants.VIEWPORT.WIDTH / 2, 200, 'Reset', () => {
+        this.btn = this.createButton(Constants.VIEWPORT.WIDTH / 2, 200, 'Try again', () => {
             this.clickSound.play();
             this.title.destroy();
             this.msg.destroy();
@@ -755,6 +755,8 @@ export default class Game extends Phaser.Scene {
     }
 
     showOrder() {
+        if (this.showingOrder) return;
+        this.showingOrder = true;
         this.orderBg = this.add.image(Constants.VIEWPORT.WIDTH / 2, Constants.VIEWPORT.HEIGHT / 2 - 160, 'page');
 
         this.orderNum = this.add.text(490, 100, `Order #${this.currentOrder.orderNo}`, {fontSize: 20, fontFamily: 'Pixellari', color: '#000'})
@@ -769,6 +771,7 @@ export default class Game extends Phaser.Scene {
             if (this.sellBtn) {
                 this.sellBtn.container.destroy();
             }
+            this.showingOrder = false;
         });
 
         if (this.itemAvailable(this.currentOrder.itemId)) {
@@ -783,6 +786,7 @@ export default class Game extends Phaser.Scene {
                 }
                 this.currentOrderButton.container.destroy();
                 this.createOrder();
+                this.showingOrder = false;
             }, 'full-button');
         }
     }
