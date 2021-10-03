@@ -191,7 +191,7 @@ export default {
             itemId: 13
         },
         {
-            recipe: [2, 9],
+            recipe: [2, 11],
             itemId: 14
         },
         {
