@@ -203,7 +203,7 @@ export default {
             itemId: 16
         },
         {
-            recipe: [3, 6],
+            recipe: [6, 11],
             itemId: 17
         },
         {
